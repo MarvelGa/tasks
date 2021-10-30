@@ -17,7 +17,7 @@ public class CustomIterator<E> implements Iterator<E> {
     }
 
     @Override
-    public Object next() {
+    public E next() {
         if (!hasNext()) {
             throw new NoSuchElementException();
         }
