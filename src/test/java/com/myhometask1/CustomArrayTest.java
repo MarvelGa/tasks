@@ -55,8 +55,8 @@ class CustomArrayTest {
         int expected = 2;
         customArray.delete(0);
         int actual = customArray.size();
-        assertEquals(customArray.get(0), "Cat2");
-        assertEquals(customArray.get(1), "Cat3");
+        assertEquals("Cat2", customArray.get(0));
+        assertEquals( "Cat3", customArray.get(1));
     }
 
     @Test
@@ -64,8 +64,8 @@ class CustomArrayTest {
         int expected = 2;
         customArray.delete(1);
         int actual = customArray.size();
-        assertEquals(customArray.get(0), "Cat1");
-        assertEquals(customArray.get(1), "Cat3");
+        assertEquals( "Cat1", customArray.get(0));
+        assertEquals( "Cat3", customArray.get(1));
     }
 
     @Test
@@ -73,8 +73,8 @@ class CustomArrayTest {
         int expected = 2;
         customArray.delete(2);
         int actual = customArray.size();
-        assertEquals(customArray.get(0), "Cat1");
-        assertEquals(customArray.get(1), "Cat2");
+        assertEquals( "Cat1", customArray.get(0));
+        assertEquals( "Cat2", customArray.get(1));
     }
 
     @Test
