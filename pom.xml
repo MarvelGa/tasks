@@ -29,27 +29,6 @@
         </dependency>
     </dependencies>
 
-    <profiles>
-        <profile>
-            <id>
-                sonar
-            </id>
-            <properties>
-                <sonar.host.url>http://localhost:9000</sonar.host.url>
-                <sonar.login>admin</sonar.login>
-                <sonar.password>admin1</sonar.password>
-            </properties>
-            <dependencies>
-                <dependency>
-                    <groupId>org.sonarsource.scanner.maven</groupId>
-                    <artifactId>sonar-maven-plugin</artifactId>
-                    <version>3.3.0.603</version>
-                </dependency>
-            </dependencies>
-        </profile>
-    </profiles>
-
-
     <build>
         <plugins>
             <plugin>
@@ -74,11 +53,10 @@
                         <configuration>
                             <rules>
                                 <rule>
-                                    <!--                                    <element>CLASS</element>-->
-                                    <!--                                    <excludes>-->
-                                    <!--                                        <exclude>com.gl.hw03.application.exception.*</exclude>-->
-                                    <!--                                        <exclude>com.gl.hw03.domain.model.duck.Duck</exclude>-->
-                                    <!--                                    </excludes>-->
+                                    <element>CLASS</element>
+                                    <excludes>
+                                        <exclude>org.myhometask1.CustomIterator</exclude>
+                                    </excludes>
                                     <limits>
                                         <limit>
                                             <counter>LINE</counter>
@@ -102,4 +80,24 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>
+                sonar
+            </id>
+            <properties>
+                <sonar.host.url>http://localhost:9000</sonar.host.url>
+                <sonar.login>admin</sonar.login>
+                <sonar.password>admin1</sonar.password>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.sonarsource.scanner.maven</groupId>
+                    <artifactId>sonar-maven-plugin</artifactId>
+                    <version>3.3.0.603</version>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 </project>

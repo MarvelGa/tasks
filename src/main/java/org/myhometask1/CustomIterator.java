@@ -1,8 +1,9 @@
 package org.myhometask1;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
-public class CustomIterator<E> implements Iterator {
+public class CustomIterator<E> implements Iterator<E> {
     private int index = 0;
     private E[] values;
 
@@ -17,6 +18,9 @@ public class CustomIterator<E> implements Iterator {
 
     @Override
     public Object next() {
+        if (!hasNext()) {
+            throw new NoSuchElementException();
+        }
         return values[index++];
     }
 }
