@@ -11,16 +11,11 @@ public class CustomArray<E> implements Method<E> {
 
     @Override
     public boolean add(E e) {
-        try {
-            E[] temp = values;
-            values = (E[]) new Object[temp.length + 1];
-            System.arraycopy(temp, 0, values, 0, temp.length);
-            values[values.length - 1] = e;
-            return true;
-        } catch (ClassCastException ex) {
-            ex.printStackTrace();
-        }
-        return false;
+        E[] temp = values;
+        values = (E[]) new Object[temp.length + 1];
+        System.arraycopy(temp, 0, values, 0, temp.length);
+        values[values.length - 1] = e;
+        return true;
     }
 
     @Override
@@ -32,8 +27,10 @@ public class CustomArray<E> implements Method<E> {
             System.arraycopy(temp, 0, values, 0, numberToDeletingElement);
             int numberAfterDeletingElement = temp.length - numberToDeletingElement - 1;
             System.arraycopy(temp, index + 1, values, index, numberAfterDeletingElement);
-        } catch (ClassCastException ex) {
-            ex.printStackTrace();
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            throw new IllegalArgumentException(String.format("The index=%s not exist", index));
+        } catch (NegativeArraySizeException ex) {
+            throw new IllegalArgumentException(String.format("The index=%s not exist. Array is empty!", index));
         }
     }
 

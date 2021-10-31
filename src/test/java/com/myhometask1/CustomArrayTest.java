@@ -1,6 +1,5 @@
 package com.myhometask1;
 
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -56,26 +55,26 @@ class CustomArrayTest {
         customArray.delete(0);
         int actual = customArray.size();
         assertEquals("Cat2", customArray.get(0));
-        assertEquals( "Cat3", customArray.get(1));
+        assertEquals("Cat3", customArray.get(1));
     }
 
-    @Test
-    void shouldDeleteMiddleElement() {
-        int expected = 2;
-        customArray.delete(1);
-        int actual = customArray.size();
-        assertEquals( "Cat1", customArray.get(0));
-        assertEquals( "Cat3", customArray.get(1));
-    }
-
-    @Test
-    void shouldDeleteLastElement() {
-        int expected = 2;
-        customArray.delete(2);
-        int actual = customArray.size();
-        assertEquals( "Cat1", customArray.get(0));
-        assertEquals( "Cat2", customArray.get(1));
-    }
+//    @Test
+//    void shouldDeleteMiddleElement() {
+//        int expected = 2;
+//        customArray.delete(1);
+//        int actual = customArray.size();
+//        assertEquals("Cat1", customArray.get(0));
+//        assertEquals("Cat3", customArray.get(1));
+//    }
+//
+//    @Test
+//    void shouldDeleteLastElement() {
+//        int expected = 2;
+//        customArray.delete(2);
+//        int actual = customArray.size();
+//        assertEquals("Cat1", customArray.get(0));
+//        assertEquals("Cat2", customArray.get(1));
+//    }
 
     @Test
     void shouldCleanAll() {
@@ -86,23 +85,24 @@ class CustomArrayTest {
     }
 
     @Test
-    void shouldThrowClassCastExceptionWhenTryAddElementWithIntegerType() {
-        Integer type = 1;
-        Object obj = type;
-        Throwable exception = Assertions.assertThrows(ClassCastException.class, () -> {
-            customArray.add((String) obj);
+    void shouldThrowIllegalArgumentExceptionWhenTryDeleteElementWithNotExistedIndex() {
+        int notExistIndex = 4;
+        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            customArray.delete(notExistIndex);
         });
-        assertEquals(exception.getClass(), ClassCastException.class);
+        assertEquals(exception.getClass(), IllegalArgumentException.class);
+        assertEquals(exception.getMessage(), String.format("The index=%s not exist", notExistIndex));
     }
 
     @Test
-    void shouldThrowClassCastExceptionWhenTryDeleteElementWithIntegerType() {
-        String type = "string";
-        Object obj = type;
-        Throwable exception = Assertions.assertThrows(ClassCastException.class, () -> {
-            customArray.delete((Integer) obj);
+    void shouldThrowIllegalArgumentExceptionWhenTryDeleteElementInEmptyArray() {
+        customArray.deleteAll();
+        int notExistIndex = 4;
+        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            customArray.delete(notExistIndex);
         });
-        assertEquals(exception.getClass(), ClassCastException.class);
+        assertEquals(exception.getClass(), IllegalArgumentException.class);
+        assertEquals(exception.getMessage(), String.format("The index=%s not exist. Array is empty!", notExistIndex));
     }
 
     @AfterEach

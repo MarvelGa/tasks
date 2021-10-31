@@ -38,7 +38,7 @@
                                 <rule>
                                     <element>CLASS</element>
                                     <excludes>
-                                        <exclude>org.myhometask1.CustomIterator</exclude>
+                                        <exclude>CustomIterator.java</exclude>
                                     </excludes>
                                     <limits>
                                         <limit>
@@ -70,6 +70,9 @@
                         <includes>
                             <include>CustomArrayTest.java</include>
                         </includes>
+                        <excludes>
+                            <exclude>CustomIterator.java</exclude>
+                        </excludes>
                     </configuration>
                 </plugin>
         </plugins>
