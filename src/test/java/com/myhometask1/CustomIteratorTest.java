@@ -11,7 +11,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CustomIteratorTest {
     String[] str;
+    Integer[] integers;
     CustomIterator<String> customIterator;
+    CustomIterator<Integer> customIterator2;
 
 
     @BeforeEach
@@ -21,6 +23,9 @@ class CustomIteratorTest {
         str[1] = "Cat";
         str[2] = "Hare";
         customIterator = new CustomIterator(str);
+
+        integers = new Integer[0];
+        customIterator2 = new CustomIterator<>(integers);
     }
 
     @Test
@@ -31,16 +36,32 @@ class CustomIteratorTest {
     }
 
     @Test
-    void shouldReturnResultOfExistingOfNextElement() {
-        boolean expected = true;
-        boolean actual = customIterator.hasNext();
+    void shouldReturnNextElement2() {
+        var expected = "Hare";
+        String actual = null;
+        for (int i = 0; i < 3; i++) {
+            actual = customIterator.next();
+        }
         assertEquals(expected, actual);
     }
 
     @Test
+    void shouldReturnResultOfExistingOfNextElement2() {
+        boolean actual = customIterator2.hasNext();
+        assertEquals(false, actual);
+    }
+
+    @Test
+    void shouldReturnResultOfExistingOfNextElement() {
+        boolean actual = customIterator.hasNext();
+        assertEquals(true, actual);
+    }
+
+
+    @Test
     void shouldThrowNoSuchElementException() {
         Throwable exception = Assertions.assertThrows(NoSuchElementException.class, () -> {
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 4; i++) {
                 customIterator.next();
             }
         });
