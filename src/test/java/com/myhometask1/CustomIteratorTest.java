@@ -29,33 +29,14 @@ class CustomIteratorTest {
     }
 
     @Test
-    void shouldReturnNextElement3() {
+    void shouldReturnNextElement() {
         assertEquals(customIterator.next(), "Dog");
         assertEquals(customIterator.next(), "Cat");
         assertEquals(customIterator.next(), "Hare");
     }
 
     @Test
-    void shouldReturnNextElement() {
-        String actual = "Hare";
-        while (customIterator.hasNext()) {
-            actual = customIterator.next();
-        }
-        assertEquals("Hare", actual);
-    }
-
-    @Test
-    void shouldReturnNextElement2() {
-        var expected = "Hare";
-        String actual = null;
-        for (int i = 0; i < 3; i++) {
-            actual = customIterator.next();
-        }
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    void shouldReturnResultOfExistingOfNextElement2() {
+    void shouldReturnFalse() {
         boolean actual = customIterator2.hasNext();
         assertEquals(false, actual);
     }
