@@ -29,13 +29,18 @@ class CustomIteratorTest {
     }
 
     @Test
+    void shouldReturnNextElement3() {
+        assertEquals(customIterator.next(), "Dog");
+        assertEquals(customIterator.next(), "Cat");
+        assertEquals(customIterator.next(), "Hare");
+    }
+
+    @Test
     void shouldReturnNextElement() {
-        String actual ="Hare";
-        while (customIterator.hasNext()){
-             actual = customIterator.next();
+        String actual = "Hare";
+        while (customIterator.hasNext()) {
+            actual = customIterator.next();
         }
-//        var expected = "Dog";
-//        var actual = customIterator.next();
         assertEquals("Hare", actual);
     }
 
@@ -57,22 +62,18 @@ class CustomIteratorTest {
 
     @Test
     void shouldReturnResultOfExistingOfNextElement() {
-
         boolean actual = customIterator.hasNext();
         assertEquals(true, actual);
     }
 
-
     @Test
     void shouldThrowNoSuchElementException() {
         Throwable exception = Assertions.assertThrows(NoSuchElementException.class, () -> {
-            while (customIterator.hasNext()){
-                String string = customIterator.next();
+            while (customIterator.hasNext()) {
+                customIterator.next();
             }
             customIterator.next();
         });
         assertEquals(exception.getClass(), NoSuchElementException.class);
     }
-
-
 }
