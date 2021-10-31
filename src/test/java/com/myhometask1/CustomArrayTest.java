@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.myhometask1.CustomArray;
+import org.myhometask1.CustomIterator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -58,24 +59,6 @@ class CustomArrayTest {
         assertEquals("Cat3", customArray.get(1));
     }
 
-//    @Test
-//    void shouldDeleteMiddleElement() {
-//        int expected = 2;
-//        customArray.delete(1);
-//        int actual = customArray.size();
-//        assertEquals("Cat1", customArray.get(0));
-//        assertEquals("Cat3", customArray.get(1));
-//    }
-//
-//    @Test
-//    void shouldDeleteLastElement() {
-//        int expected = 2;
-//        customArray.delete(2);
-//        int actual = customArray.size();
-//        assertEquals("Cat1", customArray.get(0));
-//        assertEquals("Cat2", customArray.get(1));
-//    }
-
     @Test
     void shouldCleanAll() {
         int expected = 0;
@@ -103,6 +86,12 @@ class CustomArrayTest {
         });
         assertEquals(exception.getClass(), IllegalArgumentException.class);
         assertEquals(exception.getMessage(), String.format("The index=%s not exist. Array is empty!", notExistIndex));
+    }
+
+    @Test
+    void shouldReturnIterator(){
+     var actual =  customArray.iterator();
+     assertEquals(actual.getClass(), CustomIterator.class);
     }
 
     @AfterEach
