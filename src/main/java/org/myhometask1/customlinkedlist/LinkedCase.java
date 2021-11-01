@@ -105,10 +105,6 @@ public class LinkedCase<E> implements Linked<E>, Iterable<E>, DescendingIterator
             this.nextElement = nextElement;
         }
 
-        public Node<E> getPreviousElement() {
-            return previousElement;
-        }
-
         public void setPreviousElement(Node<E> previousElement) {
             this.previousElement = previousElement;
         }

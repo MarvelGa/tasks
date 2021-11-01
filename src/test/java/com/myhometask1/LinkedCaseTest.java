@@ -31,6 +31,19 @@ class LinkedCaseTest {
     }
 
     @Test
+    void shouldReturnTrue() {
+        str.addFirst("cat");
+        str.iterator().hasNext();
+        assertEquals(str.iterator().hasNext(), true);
+    }
+
+    @Test
+    void shouldReturnFalse() {
+        str.iterator().hasNext();
+        assertEquals(str.iterator().hasNext(), false);
+    }
+
+    @Test
     void shouldIteratingByDescending() {
         str.addLast("cat");
         str.addLast("dog");
