@@ -3,7 +3,7 @@ package com.myhometask1;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.myhometask1.CustomIterator;
+import org.myhometask1.customarray.CustomIterator;
 
 import java.util.NoSuchElementException;
 

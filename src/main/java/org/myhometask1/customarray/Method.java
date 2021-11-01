@@ -1,4 +1,4 @@
-package org.myhometask1;
+package org.myhometask1.customarray;
 
 public interface Method<E> extends Iterable<E>{
     boolean add (E e);

@@ -1,4 +1,4 @@
-package org.myhometask1;
+package org.myhometask1.customarray;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

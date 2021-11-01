@@ -4,8 +4,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.myhometask1.CustomArray;
-import org.myhometask1.CustomIterator;
+import org.myhometask1.customarray.CustomArray;
+import org.myhometask1.customarray.CustomIterator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

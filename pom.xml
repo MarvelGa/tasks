@@ -37,9 +37,6 @@
                             <rules>
                                 <rule>
                                     <element>CLASS</element>
-                                    <excludes>
-                                        <exclude>CustomIterator.java</exclude>
-                                    </excludes>
                                     <limits>
                                         <limit>
                                             <counter>LINE</counter>
@@ -62,19 +59,18 @@
                     <target>11</target>
                 </configuration>
             </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.0.0-M5</version>
-                    <configuration>
-                        <includes>
-                            <include>CustomArrayTest.java</include>
-                        </includes>
-                        <excludes>
-                            <exclude>CustomIterator.java</exclude>
-                        </excludes>
-                    </configuration>
-                </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+                <configuration>
+                    <includes>
+                        <include>CustomArrayTest.java</include>
+                        <include>CustomIteratorTest.java</include>
+                        <include>LinkedCaseTest.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
