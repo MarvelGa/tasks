@@ -4,17 +4,25 @@ import java.util.Iterator;
 
 public class CustomArray<E> implements Method<E> {
     private E[] values;
+    private int pointerOfIndex = 0;
 
     public CustomArray() {
-        values = (E[]) new Object[0];
+        values = (E[]) new Object[10];
+    }
+
+    public CustomArray(int customCapacity) {
+        values = (E[]) new Object[customCapacity];
     }
 
     @Override
     public boolean add(E e) {
-        E[] temp = values;
-        values = (E[]) new Object[temp.length + 1];
-        System.arraycopy(temp, 0, values, 0, temp.length);
-        values[values.length - 1] = e;
+        if (pointerOfIndex == getLastIndexOfArray()) {
+            E[] temp = values;
+            values = (E[]) new Object[(temp.length * 3 / 2) + 1];
+            System.arraycopy(temp, 0, values, 0, temp.length);
+        }
+        values[pointerOfIndex] = e;
+        pointerOfIndex++;
         return true;
     }
 
@@ -57,5 +65,9 @@ public class CustomArray<E> implements Method<E> {
     @Override
     public Iterator<E> iterator() {
         return new CustomIterator<>(values);
+    }
+
+    private int getLastIndexOfArray() {
+        return values.length == 0 ? 0 : values.length - 1;
     }
 }
